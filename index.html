@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Медицинская математика | Тест из 200 задач</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="site-header">
+        <div class="logo">
+            <span class="logo-pulse">∫</span>
+            <span>MED<span style="color: var(--accent2);">MATH</span></span>
+        </div>
+        <div class="nav">
+            <a id="historyBtn">📊 История тестов</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <h1>Медицинская математика</h1>
+            <p>200 задач по математике с медицинским контекстом: производные, интегралы, пределы, вероятность, дифференциальные уравнения. Каждый тест — <strong>30 случайных задач</strong>. 45 секунд на ответ.</p>
+            <button id="startTestBtn" class="btn btn-primary">📐 Начать тест</button>
+        </div>
+
+        <div id="quizArea" style="display: none;">
+            <div class="timer-area">
+                <div class="timer-ring">
+                    <svg width="80" height="80" viewBox="0 0 80 80">
+                        <circle class="track" cx="40" cy="40" r="34" stroke-width="3" fill="none"/>
+                        <circle class="fill" cx="40" cy="40" r="34" stroke-width="3" fill="none" stroke-dasharray="213.6" stroke-dashoffset="0"/>
+                    </svg>
+                    <div class="timer-num" id="timerSeconds">45</div>
+                </div>
+            </div>
+            <div class="progress-bar-wrap">
+                <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+            </div>
+            <div class="quiz-card">
+                <div class="question-number" id="qNum">ЗАДАЧА 1/30</div>
+                <div class="question-text" id="qText"></div>
+                <div class="answers-list" id="answersContainer"></div>
+            </div>
+        </div>
+
+        <div id="resultArea" style="display: none;" class="quiz-card result-card"></div>
+    </div>
+
+    <div class="footer-author">
+        Медицинская математика | Производные, интегралы, пределы, вероятность
+    </div>
+
+    <button id="floatingExitBtn" class="floating-exit" style="display: none;">✖</button>
+
+    <div id="exitModal" class="modal">
+        <div class="modal-content">
+            <h3>⚠️ Прервать сессию?</h3>
+            <p>Весь прогресс текущего теста будет утерян.</p>
+            <div class="modal-buttons">
+                <button class="btn" id="cancelExitBtn">Отмена</button>
+                <button class="btn btn-primary" id="confirmExitBtn">Выйти</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="historyModal" class="modal">
+        <div class="modal-content">
+            <h3>📋 История тестов</h3>
+            <div id="historyList" class="history-list">Загрузка...</div>
+            <button class="btn" id="closeHistoryBtn">Закрыть</button>
+        </div>
+    </div>
+
+    <div id="errorsModal" class="modal">
+        <div class="modal-content">
+            <h3>❌ Разбор ошибок</h3>
+            <div id="errorsList" class="errors-list"></div>
+            <button class="btn btn-primary" id="closeErrorsBtn">Закрыть</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
